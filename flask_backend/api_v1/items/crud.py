@@ -2,7 +2,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 from flask_backend.models.item import Item as DatabaseItem
 
-from .models import CreateItem
+from .models import PostItem
 
 
 class CrudItem:
@@ -12,7 +12,7 @@ class CrudItem:
     def list(self) -> list[DatabaseItem]:
         return self.db.query(DatabaseItem).all()
 
-    def create(self, item: CreateItem) -> DatabaseItem:
+    def create(self, item: PostItem) -> DatabaseItem:
         db_item = DatabaseItem(**dict(item))
         self.db.add(db_item)
         self.db.commit()
@@ -22,7 +22,7 @@ class CrudItem:
     def get(self, item_id: int) -> DatabaseItem | None:
         return self.db.query(DatabaseItem).filter(DatabaseItem.id == item_id).first()
 
-    def update(self, id: int, new_item: CreateItem) -> DatabaseItem | None:
+    def update(self, id: int, new_item: PostItem) -> DatabaseItem | None:
         item = self.get(id)
         if item:
             item.name = new_item.name

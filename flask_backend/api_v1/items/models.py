@@ -19,7 +19,7 @@ class Item(BaseModel):
         )
 
 
-class CreateItem(BaseModel):
+class PostItem(BaseModel):
     name: str
     description: str
     price: int

@@ -9,7 +9,7 @@ from flask_backend.api import create as create_api
 from flask_backend.database import db
 
 from .crud import CrudItem
-from .models import CreateItem, Item
+from .models import Item, PostItem
 
 api = create_api(__name__, "items")
 
@@ -26,10 +26,10 @@ def list_item_endpoint() -> list[dict]:
 
 @api.post("/")
 @validate()
-def create_item_endpoint(body: CreateItem) -> dict:
+def create_item_endpoint(body: PostItem) -> dict:
     """Create a new item.
     Args:
-        body (CreateItem): The item data to create.
+        body (PostItem): The item data to create.
     Returns:
         dict: The created item data.
     """
@@ -54,11 +54,11 @@ def get_item_endpoint(item_id: int) -> dict | tuple[str, int]:
 
 @api.put("/<item_id>")
 @validate()
-def update_item_endpoint(item_id: int, body: CreateItem) -> dict | tuple[str, int]:
+def update_item_endpoint(item_id: int, body: PostItem) -> dict | tuple[str, int]:
     """Update an item by its ID.
     Args:
         item_id (int): The ID of the item to update.
-        body (CreateItem): The updated item data.
+        body (PostItem): The updated item data.
     Returns:
         dict: The updated item data.
     """
