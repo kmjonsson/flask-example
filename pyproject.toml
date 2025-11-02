@@ -1,0 +1,46 @@
+[build-system]
+requires = ["hatchling >= 1.26"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["flask_backend"]
+
+[project]
+name = "flask_backend"
+version="0.0.0"
+description = "Basic Flask example"
+requires-python = ">= 3.11"
+
+dependencies = [
+    "sqlalchemy",
+    "flask_sqlalchemy",
+    "flask_pydantic",
+    "Flask",
+    "uvicorn",
+]
+
+[project.optional-dependencies]
+dev = [
+  "coverage",
+  "pytest",
+  "ruff",
+  "httpx",
+  "mock",
+  "mypy",
+]
+
+[tool.pytest.ini_options]
+testpaths = [
+    "test",
+]
+
+[tool.coverage.report]
+fail_under = 80
+
+[tool.coverage.run]
+branch = true
+include = ["flask_backend/*"]
+command_line = "-m pytest"
+
+[tool.mypy]
+follow_untyped_imports = true
