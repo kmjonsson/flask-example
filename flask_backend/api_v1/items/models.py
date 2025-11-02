@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
-from flask_backend.models.item import DatabaseItem
+from flask_backend.models.item import Item as DatabaseItem
 
 
 class Item(BaseModel):

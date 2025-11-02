@@ -1,6 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 
-from flask_backend.models.item import DatabaseItem
+from flask_backend.models.item import Item as DatabaseItem
 
 from .models import CreateItem
 
