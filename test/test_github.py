@@ -1,14 +1,5 @@
 """Tests for item creation and retrieval endpoints."""
 
-import pytest
-
-from flask_backend import app
-
-
-@pytest.fixture()
-def client():
-    return app.test_client()
-
 
 def test_event(client):
     response = client.post(

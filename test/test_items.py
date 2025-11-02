@@ -1,24 +1,5 @@
 """Tests for item creation and retrieval endpoints."""
 
-import pytest
-
-from flask_backend import app
-from flask_backend.database import db
-
-
-@pytest.fixture()
-def client(test_db):
-    return app.test_client()
-
-
-@pytest.fixture()
-def test_db():
-    with app.app_context():
-        db.create_all()
-    yield
-    with app.app_context():
-        db.drop_all()
-
 
 def test_create_get(client):
     """Test the creation and retrieval of an item."""
