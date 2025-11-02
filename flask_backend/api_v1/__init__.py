@@ -1,5 +1,10 @@
-from .items import router as items
+"""
+API v1
+"""
+
+from .items import api as items
 
 
 def init(app):
-    app.register_blueprint(items.api)
+    """Initialize the API v1 blueprint(s)."""
+    app.register_blueprint(items)

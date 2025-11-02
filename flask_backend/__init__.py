@@ -1,3 +1,7 @@
+"""
+Flask Backend Application Initialization
+"""
+
 from .api import app
 from .api_v1 import init as init_api_v1
 from .database import DATABASE_URL, db
@@ -11,5 +15,8 @@ db.init_app(app)
 init_api_v1(app)
 init_events(app)
 
-with app.app_context():
-    db.create_all()
+
+def initialize_database():
+    """Initialize the database."""
+    with app.app_context():
+        db.create_all()

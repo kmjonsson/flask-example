@@ -1,3 +1,7 @@
+"""
+Logging configuration for the Flask backend.
+"""
+
 import logging
 
 logging.basicConfig(

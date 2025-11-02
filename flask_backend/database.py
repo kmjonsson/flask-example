@@ -1,3 +1,7 @@
+"""
+Database configuration and initialization.
+"""
+
 import os
 
 from flask_sqlalchemy import SQLAlchemy
@@ -8,6 +12,8 @@ DATABASE_URL = os.environ.get("DATABASE_STRING", "sqlite:///local.db")
 
 
 class Base(DeclarativeBase):
+    """Base class for all ORM models."""
+
     pass
 
 

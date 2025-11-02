@@ -1,7 +1,13 @@
+"""
+GitHub Models
+"""
+
 from pydantic import BaseModel, ConfigDict
 
 
 class GithubWebHookHook(BaseModel):
+    """GitHub WebHook Hook Model"""
+
     id: int
     events: list[str]
 
@@ -10,6 +16,8 @@ class GithubWebHookHook(BaseModel):
 
 
 class GithubWebHook(BaseModel):
+    """GitHub WebHook Model"""
+
     hook_id: int
     hook: GithubWebHookHook
 

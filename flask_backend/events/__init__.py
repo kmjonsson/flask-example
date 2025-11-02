@@ -1,5 +1,10 @@
-from .github import router as github
+"""
+Events
+"""
+
+from .github import api as github
 
 
 def init(app):
-    app.register_blueprint(github.api)
+    """Initialize the events blueprint(s)."""
+    app.register_blueprint(github)

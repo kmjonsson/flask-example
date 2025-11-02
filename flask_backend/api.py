@@ -1,3 +1,7 @@
+"""
+Flask Backend API Initialization
+"""
+
 from flask import Blueprint, Flask
 
 from .log import log
@@ -7,7 +11,17 @@ from .log import log
 app = Flask("flask_backend")
 
 
-def create(name, base="", version=1) -> Blueprint:
+def create(name, base, version=1) -> Blueprint:
+    """Create a Blueprint for the API.
+
+    Args:
+        name (str): The name of the Blueprint.
+        base (str): The base path for the API.
+        version (int, optional): The API version. Defaults to 1.
+
+    Returns:
+        Blueprint: The created Blueprint.
+    """
     if base != "" and not base.startswith("/"):
         base = "/" + base
     log.info(f"Registering API v{version} with base path: {base}")
