@@ -22,5 +22,5 @@ flask --app flask_backend run --host 0.0.0.0 --reload
 # Generate docs
 
 ```
-pdoc -o docs fastapi_backend
+pdoc -o docs flask_backend
 ```
